@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rajan & Barsha Chat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="login-screen">
+    <h2>Login</h2>
+    <input type="text" id="number" placeholder="Phone Number" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+  </div>
+
+  <div id="chat-screen" style="display: none">
+    <h3 id="welcome-msg"></h3>
+    <div id="chat-box"></div>
+    <input type="text" id="msg-input" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send</button>
+    <div id="call-controls">
+      <button onclick="startVoiceCall()">📞 Voice Call</button>
+      <button onclick="startVideoCall()">🎥 Video Call</button>
+    </div>
+    <audio id="ringtone" src="ring.mp3" preload="auto"></audio>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+
+  <div id="video-call-area">
+    <video id="local-video" autoplay muted style="width: 45%; border: 2px solid green;"></video>
+    <video id="remote-video" autoplay style="width: 45%; border: 2px solid red;"></video>
+  </div>
+  <script src="webrtc.js"></script>
+</body>
+</html>
